@@ -17,11 +17,15 @@ export function Header() {
   })
 
   const [isOpen, setIsOpen] = useState(false)
+  const [tabIndex, setTabIndex] = useState(0)
 
   const openModal = () => {
     setIsOpen(true)
   }
 
+  function setValueIndexTab(tab: number) {
+    setTabIndex(tab)
+  }
   const closeModal = () => {
     setIsOpen(false)
   }
@@ -60,16 +64,23 @@ export function Header() {
           transition={'0.2s'}
           bg="transparent"
           _hover={{ bg: 'transparent', textDecoration: 'underline' }}
-          onClick={openModal}
+          onClick={() => {
+            openModal()
+            setValueIndexTab(1)
+          }}
         >
           LOGIN
         </Button>
-        <ModalLogin isOpen={isOpen} onClose={closeModal} />
+        <ModalLogin isOpen={isOpen} onClose={closeModal} tabIndex={tabIndex} />
         <Button
           bg={'blackAlpha.800'}
           color={'white'}
           _hover={{ bg: 'blackAlpha.700' }}
           transition={'0.2s'}
+          onClick={() => {
+            openModal()
+            setValueIndexTab(0)
+          }}
         >
           REGISTER
         </Button>

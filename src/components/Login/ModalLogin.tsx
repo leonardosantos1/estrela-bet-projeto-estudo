@@ -4,7 +4,6 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   Image as ChakraImage,
@@ -18,7 +17,6 @@ import {
   Input,
   Icon,
   Text,
-  Center,
   Checkbox,
 } from '@chakra-ui/react'
 import { BiLogoTwitter, BiLogoFacebook } from 'react-icons/bi'
@@ -26,12 +24,24 @@ import { FcGoogle } from 'react-icons/fc'
 import { BsSteam, BsTwitch } from 'react-icons/bs'
 
 import logoSvg from '../../../public/bet-2.svg'
+import { useEffect, useState } from 'react'
 interface ModalLoginProps {
   isOpen: boolean
   onClose: () => void
+  tabIndex: number
 }
 
-export function ModalLogin({ isOpen, onClose }: ModalLoginProps) {
+export function ModalLogin({ isOpen, onClose, tabIndex }: ModalLoginProps) {
+  const [modalLoginTabIndex, setModalLoginTabIndex] = useState(0)
+
+  useEffect(() => {
+    setModalLoginTabIndex(tabIndex)
+  }, [tabIndex])
+
+  function setModalLoginTabIndexFunction(tab: number) {
+    setModalLoginTabIndex(tab)
+  }
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -42,11 +52,27 @@ export function ModalLogin({ isOpen, onClose }: ModalLoginProps) {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Tabs align="center" borderColor={'transparent'}>
+            <Tabs
+              index={modalLoginTabIndex}
+              align="center"
+              borderColor={'transparent'}
+            >
               <TabList>
                 <HStack spacing={8}>
-                  <Tab>Registre-se</Tab>
-                  <Tab>Login</Tab>
+                  <Tab
+                    onClick={() => {
+                      setModalLoginTabIndexFunction(0)
+                    }}
+                  >
+                    Registre-se
+                  </Tab>
+                  <Tab
+                    onClick={() => {
+                      setModalLoginTabIndexFunction(1)
+                    }}
+                  >
+                    Login
+                  </Tab>
                 </HStack>
               </TabList>
 
