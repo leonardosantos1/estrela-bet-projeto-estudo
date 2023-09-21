@@ -6,204 +6,125 @@ import {
   Button,
   Image as ChakraImage,
   Icon,
+  Avatar,
 } from '@chakra-ui/react'
-
-import furiaLogo from '../../public/furia-logo.svg'
-import imperialLogo from '../../public/imperial-logo.svg'
-import naviLogo from '../../public/navi-logo.svg'
-import fazeLogo from '../../public/faze-logo.svg'
-import fnaticLogo from '../../public/fnatic-logo.svg'
-import liquidLogo from '../../public/liquid-logo.svg'
-import heroicLogo from '../../public/heroic-logo.svg'
-import skGamingLogo from '../../public/sk-gaming-logo.svg'
-import glLogo from '../../public/gl-logo.svg'
-import spiritLogo from '../../public/spirit-logo.svg'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
-export function TabPanelComponent() {
+interface Bets {
+  opponentRight: string
+  opponentLeft: string
+  oddLeft: string
+  oddRight: string
+  imgOpponentRight: string
+  imgOpponentLeft: string
+  wLeft: { base: string; lg: string }
+  hLeft: { base: string; lg: string }
+  wRight: { base: string; lg: string }
+  hRight: { base: string; lg: string }
+  avatarOpponentRight?: string
+  avatarOpponentLeft?: string
+}
+
+interface TabPanelComponentProps {
+  label: string
+  bets: Bets[]
+  amountGame: number
+}
+
+export function TabPanelComponent({
+  label,
+  bets,
+  amountGame,
+}: TabPanelComponentProps) {
   return (
     <Flex w="full" h="100%">
       <VStack w="full" h="full">
-        <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
-          CSGO
-        </Text>
-        <HStack
-          bg={'gray.200'}
-          w={'100%'}
-          justify={'space-between'}
-          borderRadius={8}
-        >
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <HStack spacing={0} justify={'flex-start'} w="100%" h="100%">
-                <ChakraImage src={furiaLogo.src} w="10" h="10" />
-                <Text fontSize={'0.8rem'}>FURIA</Text>
-              </HStack>
+        {bets.map((bet) => (
+          <>
+            <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
+              {label}
+            </Text>
+            <HStack
+              bg={'gray.200'}
+              w={'100%'}
+              justify={'space-between'}
+              borderRadius={8}
+            >
+              <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
+                <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
+                  <HStack spacing={0} justify={'flex-start'} w="100%" h="100%">
+                    {bet.imgOpponentLeft.length > 0 ? (
+                      <ChakraImage
+                        src={bet.imgOpponentLeft}
+                        w={{
+                          base: bet.wLeft.base,
+                          lg: bet.wLeft.lg,
+                        }}
+                        h={{
+                          base: bet.hLeft.base,
+                          lg: bet.hLeft.lg,
+                        }}
+                      />
+                    ) : (
+                      <Avatar
+                        name={
+                          bet.avatarOpponentLeft
+                            ? bet.avatarOpponentLeft
+                            : 'Opponent Left'
+                        }
+                        w="8"
+                        h="8"
+                        bg={'green'}
+                        color={'white'}
+                      />
+                    )}
+                    <Text fontSize={'0.8rem'} pl="1">
+                      {bet.opponentLeft}
+                    </Text>
+                  </HStack>
 
-              <Text fontSize={'1rem'}>1.02</Text>
-            </HStack>
-          </Button>
-          <Text>VS</Text>
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <Text fontSize={'1rem'}>1.50</Text>
+                  <Text fontSize={'1rem'}>{bet.oddLeft}</Text>
+                </HStack>
+              </Button>
+              <Text>VS</Text>
+              <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
+                <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
+                  <Text fontSize={'1rem'}>{bet.oddRight}</Text>
 
-              <HStack spacing={0.5} justify={'flex-end'} w="100%" h="100%">
-                <Text fontSize={'0.9rem'}>Imperial</Text>
-                <ChakraImage src={imperialLogo.src} w="8" h="8" />
-              </HStack>
+                  <HStack spacing={0.5} justify={'flex-end'} w="100%" h="100%">
+                    <Text fontSize={'0.8rem'} pr="1">
+                      {bet.opponentRight}
+                    </Text>
+                    {bet.imgOpponentRight.length > 0 ? (
+                      <ChakraImage
+                        src={bet.imgOpponentRight}
+                        w={{
+                          base: bet.wRight.base,
+                          lg: bet.wRight.lg,
+                        }}
+                        h={{
+                          base: bet.hRight.base,
+                          lg: bet.hRight.lg,
+                        }}
+                      />
+                    ) : (
+                      <Avatar
+                        name={
+                          bet.avatarOpponentRight
+                            ? bet.avatarOpponentRight
+                            : 'Opponent Right'
+                        }
+                        w="8"
+                        h="8"
+                      />
+                    )}
+                  </HStack>
+                </HStack>
+              </Button>
             </HStack>
-          </Button>
-        </HStack>
-        <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
-          CSGO
-        </Text>
-        <HStack
-          bg={'gray.200'}
-          w={'100%'}
-          justify={'space-between'}
-          borderRadius={8}
-        >
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <HStack spacing={0.5} justify={'flex-start'} w="100%" h="100%">
-                <ChakraImage src={naviLogo.src} w="8" h="8" />
-
-                <Text fontSize={'0.8rem'}>Natus Vincere</Text>
-              </HStack>
-              <Text fontSize={'1rem'}>1.24</Text>
-            </HStack>
-          </Button>
-          <Text>VS</Text>
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <Text fontSize={'1rem'}>1.50</Text>
-
-              <HStack spacing={0.5} justify={'flex-end'} w="100%" h="100%">
-                <Text fontSize={'1rem'}>fnatic</Text>
-                <ChakraImage
-                  src={fnaticLogo.src}
-                  w={{ base: '8', lg: '12' }}
-                  h={{ base: '8', lg: '12' }}
-                />
-              </HStack>
-            </HStack>
-          </Button>
-        </HStack>
-        <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
-          CSGO
-        </Text>
-        <HStack
-          bg={'gray.200'}
-          w={'100%'}
-          justify={'space-between'}
-          borderRadius={8}
-        >
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <HStack spacing={0.5} justify={'flex-start'} w="100%" h="100%">
-                <ChakraImage
-                  src={heroicLogo.src}
-                  w={{ base: '8', lg: '12' }}
-                  h={{ base: '8', lg: '12' }}
-                />
-
-                <Text fontSize={'0.9rem'}>Heroic</Text>
-              </HStack>
-              <Text fontSize={'1rem'}>1.24</Text>
-            </HStack>
-          </Button>
-          <Text>VS</Text>
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <Text fontSize={'1rem'}>1.50</Text>
-
-              <HStack spacing={0.5} justify={'flex-end'} w="100%" h="100%">
-                <Text fontSize={'0.9rem'}>Liquid</Text>
-                <ChakraImage
-                  src={liquidLogo.src}
-                  w={{ base: '8', lg: '12' }}
-                  h={{ base: '8', lg: '12' }}
-                />
-              </HStack>
-            </HStack>
-          </Button>
-        </HStack>
-        <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
-          CSGO
-        </Text>
-        <HStack
-          bg={'gray.200'}
-          w={'100%'}
-          justify={'space-between'}
-          borderRadius={8}
-        >
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <HStack spacing={0.5} justify={'flex-start'} w="100%" h="100%">
-                <ChakraImage
-                  src={fazeLogo.src}
-                  w={{ base: '8', lg: '10' }}
-                  h={{ base: '8', lg: '10' }}
-                />
-
-                <Text fontSize={'0.9rem'}>FaZe</Text>
-              </HStack>
-              <Text fontSize={'1rem'}>1.24</Text>
-            </HStack>
-          </Button>
-          <Text>VS</Text>
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <Text fontSize={'1rem'}>1.50</Text>
-
-              <HStack spacing={3} justify={'flex-end'} w="100%" h="100%">
-                <Text fontSize={'0.9rem'}>SK Gaming</Text>
-                <ChakraImage
-                  src={skGamingLogo.src}
-                  w={{ base: '6', lg: '6' }}
-                  h={{ base: '6', lg: '6' }}
-                />
-              </HStack>
-            </HStack>
-          </Button>
-        </HStack>
-        <Text textAlign={'left'} w={'100%'} fontSize={'0.55rem'}>
-          CSGO
-        </Text>
-        <HStack
-          bg={'gray.200'}
-          w={'100%'}
-          justify={'space-between'}
-          borderRadius={8}
-        >
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <HStack spacing={0.5} justify={'flex-start'} w="100%" h="100%">
-                <ChakraImage src={glLogo.src} w="8" h="8" />
-                <Text fontSize={'0.8rem'}>GamerLegion</Text>
-              </HStack>
-
-              <Text fontSize={'1rem'}>1.02</Text>
-            </HStack>
-          </Button>
-          <Text>VS</Text>
-          <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
-            <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
-              <Text fontSize={'1rem'}>1.50</Text>
-
-              <HStack spacing={3} justify={'flex-end'} w="100%" h="100%">
-                <Text fontSize={'0.9rem'}>Spirit</Text>
-                <ChakraImage
-                  src={spiritLogo.src}
-                  w={{ base: '8', lg: '12' }}
-                  h={{ base: '8', lg: '12' }}
-                />
-              </HStack>
-            </HStack>
-          </Button>
-        </HStack>
+          </>
+        ))}
         <Button
           fontStyle={'italic'}
           bg="transparent"
@@ -211,7 +132,7 @@ export function TabPanelComponent() {
           _hover={{ bg: '#6385b1', color: 'white' }}
           size={{ base: 'md', lg: 'sm' }}
         >
-          Acompanhe mais de 500 jogos de Esports
+          Acompanhe mais de {amountGame} jogos de Esports
           <Icon as={AiOutlineArrowRight} mt="1" ml="2" />
         </Button>
       </VStack>

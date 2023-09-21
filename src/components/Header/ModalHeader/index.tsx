@@ -23,7 +23,8 @@ import { BiLogoTwitter, BiLogoFacebook } from 'react-icons/bi'
 import { FcGoogle } from 'react-icons/fc'
 import { BsSteam, BsTwitch } from 'react-icons/bs'
 
-import logoSvg from '../../../public/bet-2.svg'
+import logoSvg from '../../../../public/bet-2.svg'
+
 import { useEffect, useState } from 'react'
 interface ModalLoginProps {
   isOpen: boolean

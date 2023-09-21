@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { DrawerHeaderComponent } from './DrawerHeaderComponent'
 import { ButtonsHeader } from './ButtonsHeader'
 import { useState } from 'react'
-import { ModalLogin } from '../Login/ModalLogin'
+import { ModalLogin } from './ModalHeader'
 export function Header() {
   const isNotWideVersion = useBreakpointValue({
     base: true,
