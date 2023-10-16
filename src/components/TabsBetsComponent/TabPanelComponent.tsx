@@ -51,7 +51,11 @@ export function TabPanelComponent({
               justify={'space-between'}
               borderRadius={8}
             >
-              <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
+              <Button
+                w="13rem"
+                h={{ base: '2.5rem', lg: '3rem' }}
+                _hover={{ bg: 'gray.500', color: 'white' }}
+              >
                 <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
                   <HStack spacing={0} justify={'flex-start'} w="100%" h="100%">
                     {bet.imgOpponentLeft.length > 0 ? (
@@ -88,7 +92,11 @@ export function TabPanelComponent({
                 </HStack>
               </Button>
               <Text>VS</Text>
-              <Button w="13rem" h={{ base: '2.5rem', lg: '3rem' }}>
+              <Button
+                w="13rem"
+                h={{ base: '2.5rem', lg: '3rem' }}
+                _hover={{ bg: 'gray.500', color: 'white' }}
+              >
                 <HStack spacing={0} justify={'space-between'} w="100%" h="100%">
                   <Text fontSize={'1rem'}>{bet.oddRight}</Text>
 

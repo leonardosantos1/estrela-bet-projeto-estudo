@@ -17,7 +17,6 @@ import {
 import Link from 'next/link'
 import { IoMdFootball } from 'react-icons/io'
 import { MdGames } from 'react-icons/md'
-import { ImBlocked } from 'react-icons/im'
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs'
 import csgoLogo from '../../../public/csgo-logo.svg'
 import lolLogo from '../../../public/lol-logo.svg'
@@ -224,21 +223,6 @@ export function ButtonsHeader() {
           </>
         )}
       </Menu>
-      {/* <Link href="/bets">
-        <Button
-          w={'24'}
-          h="8vh"
-          borderRadius={'0'}
-          bg="transparent"
-          _hover={{ bg: 'transparent', fontWeight: 'bold' }}
-        >
-          <HStack spacing={1}>
-            <Icon as={MdGames} w="5" h="5" color={'gray.700'} />
-            <Text color={'gray.500'}>Esports</Text>
-          </HStack>
-        </Button>
-      </Link> */}
-
       <Menu>
         {({ isOpen }) => (
           <>
@@ -437,8 +421,7 @@ export function ButtonsHeader() {
           </>
         )}
       </Menu>
-
-      {/* <Link href="/games">
+      <Link href="/concurso">
         <Button
           w={'32'}
           h="8vh"
@@ -447,26 +430,65 @@ export function ButtonsHeader() {
           _hover={{ bg: 'transparent', fontWeight: 'bold' }}
         >
           <HStack spacing={1}>
-            <Icon as={IoMdFootball} w="5" h="5" color={'gray.700'} />
-            <Text color={'gray.500'}>Esportes</Text>
-          </HStack>
-        </Button>
-      </Link> */}
-
-      <Link href="/secret">
-        <Button
-          w={'32'}
-          h="8vh"
-          borderRadius={'0'}
-          bg="transparent"
-          _hover={{ bg: 'transparent', fontWeight: 'bold' }}
-        >
-          <HStack spacing={1}>
-            <Icon as={ImBlocked} w="4" h="4" color={'gray.700'} />
-            <Text color={'gray.500'}>SECRET</Text>
+            <Text color={'gray.500'}>Concurso</Text>
           </HStack>
         </Button>
       </Link>
+      <Link href="/noticia">
+        <Button
+          w={'32'}
+          h="8vh"
+          borderRadius={'0'}
+          bg="transparent"
+          _hover={{ bg: 'transparent', fontWeight: 'bold' }}
+        >
+          <HStack spacing={1}>
+            <Text color={'gray.500'}>Notícia</Text>
+          </HStack>
+        </Button>
+      </Link>
+      <HStack>
+        <Menu>
+          {({ isOpen }) => (
+            <>
+              <MenuButton
+                isActive={isOpen}
+                as={Button}
+                w={'32'}
+                h="8vh"
+                borderRadius={'0'}
+                bg="transparent"
+                _hover={{ bg: 'transparent', fontWeight: 'bold' }}
+                color={'gray.500'}
+                _focus={{ boxShadow: 'none' }}
+                _active={{ bg: 'transparent', fontWeight: 'bold' }}
+              >
+                <HStack>
+                  <Text>Ajuda</Text>
+
+                  {isOpen ? (
+                    <Flex justify={'center'} align={'flex-end'} mt="2">
+                      <Icon as={BsChevronUp} w="3" />
+                    </Flex>
+                  ) : (
+                    <Flex justify={'center'} align={'flex-end'} mt="2">
+                      <Icon as={BsChevronDown} w="3" />
+                    </Flex>
+                  )}
+                </HStack>
+              </MenuButton>
+              <MenuList>
+                <MenuItem color={'gray.500'} fontWeight="bold">
+                  FAQ
+                </MenuItem>
+                <MenuItem color={'gray.500'} fontWeight="bold">
+                  Contate o Suporte
+                </MenuItem>
+              </MenuList>
+            </>
+          )}
+        </Menu>
+      </HStack>
     </HStack>
   )
 }
