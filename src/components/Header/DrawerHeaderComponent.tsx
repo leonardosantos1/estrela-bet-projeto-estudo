@@ -56,18 +56,17 @@ export function DrawerHeaderComponent() {
           <DrawerCloseButton />
           <DrawerHeader>
             <Link href="/">
-              <ChakraImage
-                src={logoImage.src}
-                w="16"
-                h="16"
-                border="1px"
-                borderColor={'red'}
-              />
+              <ChakraImage src={logoImage.src} w="16" h="16" />
             </Link>
           </DrawerHeader>
           <DrawerBody p={0}>
             <HStack spacing={'0'} p={0}>
-              <VStack spacing={0} p={0} overflowY="auto">
+              <VStack
+                spacing={0}
+                p={0}
+                overflowY="visible"
+                overflowX={'hidden'}
+              >
                 <Button w={'4rem'} h={'4rem'} bg={'transparent'}>
                   <ChakraImage src={lolLogo.src} w="100%" h="100%" />
                 </Button>
@@ -111,22 +110,145 @@ export function DrawerHeaderComponent() {
                 justify={'flex-start'}
                 w={'100%'}
                 h="100%"
-                border={'1px'}
-                borderColor={'red'}
                 mb="auto"
                 overflowX="auto"
               >
-                <Text>nfiasinfsenif</Text>
+                <VStack w="100%">
+                  <Flex
+                    justify={'flex-start'}
+                    align={'center'}
+                    w="100%"
+                    mt="8"
+                    background="gray.200"
+                    h={'3rem'}
+                  >
+                    <Text fontWeight={'bold'} px={6} color={'#ffc400'}>
+                      APOSTAS
+                    </Text>
+                  </Flex>
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 100%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text px={2} textAlign={'left'} w="100%">
+                      Esports
+                    </Text>
+                  </Button>
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 100%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text px={2} textAlign={'left'} w="100%">
+                      Esportes
+                    </Text>
+                  </Button>
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 100%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text px={2} textAlign={'left'} w="100%">
+                      Concurso
+                    </Text>
+                  </Button>
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 70%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text px={2} textAlign={'left'} w="100%">
+                      Notícia
+                    </Text>
+                  </Button>
+
+                  <Flex
+                    justify={'flex-start'}
+                    align="center"
+                    h={'3rem'}
+                    background="gray.200"
+                    w="100%"
+                  >
+                    <Text fontWeight={'bold'} px={6} color={'#ffc400'}>
+                      AJUDA
+                    </Text>
+                  </Flex>
+
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 70%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text
+                      px={2}
+                      textAlign={'left'}
+                      w="100%"
+                      fontSize={'0.95rem'}
+                    >
+                      FAQ
+                    </Text>
+                  </Button>
+                  <Button
+                    w={'100%'}
+                    h={'3rem'}
+                    bg={'transparent'}
+                    borderRadius={0}
+                    _hover={{
+                      background:
+                        'linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #747474d3 70%)',
+                      color: 'white',
+                    }}
+                    transition={'0.1s'}
+                  >
+                    <Text
+                      px={2}
+                      textAlign={'left'}
+                      w="100%"
+                      fontSize={'0.95rem'}
+                    >
+                      Contate o Suporte
+                    </Text>
+                  </Button>
+                </VStack>
               </Flex>
             </HStack>
           </DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

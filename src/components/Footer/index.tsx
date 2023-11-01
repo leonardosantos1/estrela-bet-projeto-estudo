@@ -192,31 +192,40 @@ export function Footer() {
             </HStack>
           </VStack>
         </HStack>
-        <Divider py="2" />
 
         {isWideVersion && (
-          <HStack spacing={36} py="2" w={{ sm: '75%', md: '90%', lg: '90%' }}>
-            <NavLinkFooter
-              title={'Conteúdo'}
-              texts={navLinksChildren.textsContent}
-            />
-            <NavLinkFooter
-              title={'Suporte'}
-              texts={navLinksChildren.textsSuport}
-            />
-            <NavLinkFooter title={'Legal'} texts={navLinksChildren.textsLaws} />
-            <NavLinkFooter
-              title={'Redes sociais'}
-              texts={navLinksChildren.textsMidasSocias}
-            />
-          </HStack>
+          <>
+            <Divider py="2" />
+            <HStack spacing={36} py="2" w={{ sm: '75%', md: '90%', lg: '90%' }}>
+              <NavLinkFooter
+                title={'Conteúdo'}
+                texts={navLinksChildren.textsContent}
+              />
+              <NavLinkFooter
+                title={'Suporte'}
+                texts={navLinksChildren.textsSuport}
+              />
+              <NavLinkFooter
+                title={'Legal'}
+                texts={navLinksChildren.textsLaws}
+              />
+              <NavLinkFooter
+                title={'Redes sociais'}
+                texts={navLinksChildren.textsMidasSocias}
+              />
+            </HStack>
+          </>
         )}
+
         <Flex w={'100%'} maxW={'1180px'} flexWrap={'wrap'} justify={'center'}>
+          <Divider py="2" />
+
           <Text
             fontSize={'0.5rem'}
             textAlign={'justify'}
             w={{ base: '60%', md: '90%', lg: '90%' }}
             flexWrap={'wrap'}
+            pt="6"
           >
             Aviso Importante: Todas as Imagens Neste Site São Públicas ou
             Criadas por IA para Fins de Estudo e Portfólio, Não Comerciais Caro

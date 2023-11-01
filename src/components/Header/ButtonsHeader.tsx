@@ -81,6 +81,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #747474d3 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -90,7 +91,7 @@ export function ButtonsHeader() {
                     >
                       <VStack spacing={0}>
                         <ChakraImage src={csgoLogo.src} w="3rem" h="3rem" />
-                        <Text fontSize={'0.8rem'} fontStyle={'italic'}>
+                        <Text fontSize={'0.65rem'} fontWeight={'bold'}>
                           CSGO
                         </Text>
                       </VStack>
@@ -104,6 +105,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #53b2ffd6 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -113,8 +115,8 @@ export function ButtonsHeader() {
                     >
                       <VStack spacing={0}>
                         <ChakraImage src={lolLogo.src} w="3rem" h="3rem" />
-                        <Text fontSize={'0.8rem'} fontStyle={'italic'}>
-                          LoL
+                        <Text fontSize={'0.65rem'} fontWeight={'bold'}>
+                          LOL
                         </Text>
                       </VStack>
                     </Box>
@@ -128,6 +130,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ff9900cf 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -137,8 +140,8 @@ export function ButtonsHeader() {
                     >
                       <VStack spacing={0}>
                         <ChakraImage src={freeFireLogo.src} w="3rem" h="3rem" />
-                        <Text fontSize={'0.8rem'} fontStyle={'italic'}>
-                          Free fire
+                        <Text fontSize={'0.65rem'} fontWeight={'bold'}>
+                          FREE FIRE
                         </Text>
                       </VStack>
                     </Box>
@@ -152,6 +155,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #7a7a7ace 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -165,7 +169,7 @@ export function ButtonsHeader() {
                           w="3rem"
                           h="3rem"
                         />
-                        <Text fontSize={'0.9rem'} fontStyle={'italic'}>
+                        <Text fontSize={'0.7rem'} fontWeight={'bold'}>
                           R6
                         </Text>
                       </VStack>
@@ -180,6 +184,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ff5252d6 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -189,8 +194,8 @@ export function ButtonsHeader() {
                     >
                       <VStack spacing={0}>
                         <ChakraImage src={valorantLogo.src} w="3rem" h="3rem" />
-                        <Text fontSize={'0.8rem'} fontStyle={'italic'}>
-                          Valorant
+                        <Text fontSize={'0.6rem'} fontWeight={'bold'}>
+                          VALORANT
                         </Text>
                       </VStack>
                     </Box>
@@ -202,6 +207,7 @@ export function ButtonsHeader() {
                       _hover={{
                         background:
                           'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #de3140b3 100%)',
+                        color: 'white',
                       }}
                       height="6rem"
                       w={'6rem'}
@@ -211,8 +217,8 @@ export function ButtonsHeader() {
                     >
                       <VStack spacing={0}>
                         <ChakraImage src={dota2Logo.src} w="3rem" h="3rem" />
-                        <Text fontSize={'0.8rem'} fontStyle={'italic'}>
-                          Dota 2
+                        <Text fontSize={'0.65rem'} fontWeight={'bold'}>
+                          DOTA 2
                         </Text>
                       </VStack>
                     </Box>
@@ -421,32 +427,28 @@ export function ButtonsHeader() {
           </>
         )}
       </Menu>
-      <Link href="/concurso">
-        <Button
-          w={'32'}
-          h="8vh"
-          borderRadius={'0'}
-          bg="transparent"
-          _hover={{ bg: 'transparent', fontWeight: 'bold' }}
-        >
-          <HStack spacing={1}>
-            <Text color={'gray.500'}>Concurso</Text>
-          </HStack>
-        </Button>
-      </Link>
-      <Link href="/noticia">
-        <Button
-          w={'32'}
-          h="8vh"
-          borderRadius={'0'}
-          bg="transparent"
-          _hover={{ bg: 'transparent', fontWeight: 'bold' }}
-        >
-          <HStack spacing={1}>
-            <Text color={'gray.500'}>Notícia</Text>
-          </HStack>
-        </Button>
-      </Link>
+      <Button
+        w={'32'}
+        h="8vh"
+        borderRadius={'0'}
+        bg="transparent"
+        _hover={{ bg: 'transparent', fontWeight: 'bold' }}
+      >
+        <HStack spacing={1}>
+          <Text color={'gray.500'}>Concurso</Text>
+        </HStack>
+      </Button>
+      <Button
+        w={'32'}
+        h="8vh"
+        borderRadius={'0'}
+        bg="transparent"
+        _hover={{ bg: 'transparent', fontWeight: 'bold' }}
+      >
+        <HStack spacing={1}>
+          <Text color={'gray.500'}>Notícia</Text>
+        </HStack>
+      </Button>
       <HStack>
         <Menu>
           {({ isOpen }) => (
