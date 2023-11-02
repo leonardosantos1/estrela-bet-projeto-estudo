@@ -6,16 +6,29 @@ import {
   Flex,
   Stack,
 } from '@chakra-ui/react'
-import imageRandomEstrelBets from '../../../public/image-estrela-bets.png'
+import imageRandomEstreloBets1 from '../../../public/image-estrelo-bets.png'
+import imageRandomEstreloBets2 from '../../../public/image-estrelo-bets-2.png'
 
-export function BannerDoYoursBets() {
+interface BannerDoYoursBetsProps {
+  side: string
+  textAboveButton: string
+}
+
+export function BannerDoYoursBets({
+  side,
+  textAboveButton,
+}: BannerDoYoursBetsProps) {
   return (
     <Stack
       spacing={24}
       direction={['column', 'column', 'column', 'row']}
       py="40"
     >
-      <ChakraImage src={imageRandomEstrelBets.src} w="30rem" h="30rem" />
+      {side === 'left' ? (
+        <ChakraImage src={imageRandomEstreloBets1.src} w="30rem" h="30rem" />
+      ) : (
+        ''
+      )}
       <VStack spacing={0} justify={'flex-start'} my={'6'}>
         <Text
           fontSize={'4.5rem'}
@@ -61,7 +74,7 @@ export function BannerDoYoursBets() {
         </Text>
         <VStack w="100%" justify={'flex-start'} mt="4">
           <Text w="100%" m="2" color={'white'} fontSize={'1.1rem'}>
-            Querendo apostar em esports? Achou teu lugar!
+            {textAboveButton}
           </Text>
           <Flex w={'100%'}>
             <Button
@@ -75,6 +88,11 @@ export function BannerDoYoursBets() {
           </Flex>
         </VStack>
       </VStack>
+      {side === 'right' ? (
+        <ChakraImage src={imageRandomEstreloBets2.src} w="30rem" h="30rem" />
+      ) : (
+        ''
+      )}
     </Stack>
   )
 }

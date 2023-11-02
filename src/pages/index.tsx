@@ -1,6 +1,5 @@
 import {
   Flex,
-  HStack,
   Image as ChakraImage,
   Stack,
   Card,
@@ -180,10 +179,27 @@ export default function Home() {
           w="100%"
         >
           <Flex w="100%" h="auto" mx="auto" maxW={'1280px'} justify={'center'}>
-            <BannerDoYoursBets />
+            <BannerDoYoursBets
+              side="left"
+              textAboveButton="Querendo apostar em esports? Achou teu lugar!"
+            />
           </Flex>
         </Flex>
 
+        <Flex
+          bg={
+            'linear-gradient(to top, rgba(255, 255, 255, 0) 0%, #0d6a81 100%)'
+          }
+          w="100%"
+        >
+          <Flex w="100%" h="auto" mx="auto" maxW={'1280px'} justify={'center'}>
+            <BannerDoYoursBets
+              side="right"
+              textAboveButton="Aposte no futuro.
+"
+            />
+          </Flex>
+        </Flex>
         <Flex bg={'#2b2a2a'} w="100%" border={'1px'} borderTopColor={'black'}>
           <Flex w="100%" h="auto" mx="auto" maxW={'1180px'}>
             <PartnersGuys />
